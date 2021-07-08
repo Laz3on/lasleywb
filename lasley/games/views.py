@@ -9,21 +9,33 @@ headers = {'Accept': 'application/json'}
 # Create your views here.
 
 def index(request):
-    gameList = {}
+    # gameList = {}
     resp = requests.get(url, headers)
     games = json.loads(resp.text)
-    print(games)
+    # print(games)
     # games = serializers.serialize('json', games)
-    # for game in games:
-    #     gameImg = game['thumbnail']
-    #     gameTitle = game['title']
-    #     gameDesc = game['short_description']
-    #     gameGenre = game['genre']
-    #     gamePlatform = game['platform']
-    #     gameReleaseDate = game['release_date']
-    #     gameURL = game['game_url']
-    #     gameDeveloper = game['developer']
-        # gameList = gameList.append(gameImg,gameTitle,gameDesc,gameGenre,gamePlatform,gameReleaseDate,gameURL,gameDeveloper)
+    for game in games:
+        gameImg = game['thumbnail']
+        gameTitle = game['title']
+        gameDesc = game['short_description']
+        gameGenre = game['genre']
+        gamePlatform = game['platform']
+        gameReleaseDate = game['release_date']
+        gameURL = game['game_url']
+        gameDeveloper = game['developer']
+        gameList = dict(Image=gameImg,Title=gameTitle,Desc=gameDesc,Genre=gameGenre,Platform=gamePlatform,ReleaseDt=gameReleaseDate,URL=gameURL,Developer=gameDeveloper)
 
-    return render(request, 'games.html', context=games)
-    # return HttpResponse(games)
+        context = {
+            'gameImg':gameImg,
+            'title':gameTitle,
+            'desc':gameDesc,
+            'genre':gameGenre,
+            'platform':gamePlatform,
+            'release_Date':gameReleaseDate,
+            'url':gameURL,
+            'developer':gameDeveloper,
+        }
+    # return(gameList)
+        # print(gameList)
+    # return render_to_response('games.html', gamesList.items())
+    return render(request, 'games.html', context=context)
