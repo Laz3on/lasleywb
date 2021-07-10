@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.core import serializers
+from django.template import loader
 import requests
 import json
 
@@ -13,11 +13,22 @@ def dadjoke(request):
     resp = requests.get(url, headers=headers)
     joke = json.loads(resp.text)
     joke = joke['joke']
-    print(joke)
-    html = '<h1> %s </h1>' % joke
+    template = loader.get_template('dadjoke.html')
+    context = {
+        'joke': joke
+    }
+    return HttpResponse(template.render(context, request))
 
-    return HttpResponse(html)
+
+chuck_url = "https://api.chucknorris.io/jokes/random"
 
 
-def hello(request):
-    return HttpResponse("Hello")
+def chuck(request):
+    response = requests.get(chuck_url, headers=headers)
+    norris = json.loads(response.text)
+    norris = norris['value']
+    template = loader.get_template('dadjoke.html')
+    context = {
+        'norris': norris
+    }
+    return HttpResponse(template.render(context, request))
