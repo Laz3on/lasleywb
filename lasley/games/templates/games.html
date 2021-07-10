@@ -4,44 +4,11 @@
 
 <h1>Game List</h1>
 
-
-<!-- <script>console.log('Hello')</script>
-<table>
-    <tr>
-        <td>a</td>
-        <td>b</td>
-        <td>c</td>
-    </tr>
-
-    {% for key, values in gameList.items %}
-    <tr>
-        <td>{{key}}</td>
-        {% for v in values.items %}
-        <td>{{v}}</td>
-        {% endfor %}
-    </tr>
-    {% endfor %}
-</table>
- -->
-
-{% if title %}
-
-{{ title }} {{ desc }}
-
-{% endif %}
-
-{% if context.length > 0 %}
-<p>There are games</p>
-{% for game in gameList %}
-<li>
-    <a href="{{ game.url }}">{{ game.title }}</a>
-</li>
+{{title}} - {{platform}} 
+<script>console.log(games)</script>
+{% for game in games %}
+<script>console.log('inside for loop')</script>
+{{game.title}}
 {% endfor %}
-{% else %}
-<p>There is no game list</p>
-{% endif %}
-
-
-
 
 {% endblock %}
