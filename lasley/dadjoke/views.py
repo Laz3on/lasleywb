@@ -27,8 +27,9 @@ def chuck(request):
     response = requests.get(chuck_url, headers=headers)
     norris = json.loads(response.text)
     norris = norris['value']
-    template = loader.get_template('dadjoke.html')
+    template = loader.get_template('norris.html')
     context = {
         'norris': norris
     }
+    print(norris)
     return HttpResponse(template.render(context, request))
