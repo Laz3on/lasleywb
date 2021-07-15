@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block content %}
+<a class="btn btn-primary" href="{% url 'dadjoke' %}">Get a new joke</a>
+
+<h1>
+    {{ joke }}
+</h1>
+<hr>
+<h1>
+    {{ chuck }}
+</h1>
+
+{% endblock %}
