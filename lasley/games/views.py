@@ -13,7 +13,8 @@ def index(request):
     gameList = {}
     resp = requests.get(url, headers)
     games = json.loads(resp.text)
-    games = games[0]
+    games = games[10]
+    print(games)
 
-    return render(request, 'games.html', games)
+    return render(request, 'games.html', context=games)
     # return HttpResponse(games)

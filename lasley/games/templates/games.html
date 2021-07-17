@@ -2,12 +2,15 @@
 
 {% block content %}
 
+{{ id }}
+
+<ul>
+    {% for game in games %}
+
+    <li>{{ game.id }}</li>
 
 
 
-{% for game in games %}
-<li>{{ game }}</li>
-{% endfor %}
-
-
+    {% endfor %}
+</ul>
 {% endblock %}
