@@ -5,13 +5,9 @@
 
 
 
-
-<table>
-
-    {% for game in games %}
-        console.log(game)
-    {% endfor %}
-</table>
+{% for game in games %}
+<li>{{ game }}</li>
+{% endfor %}
 
 
 {% endblock %}
