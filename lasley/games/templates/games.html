@@ -2,13 +2,20 @@
 
 {% block content %}
 
-{{ id }}
+
+<h2>List provided by <a href="https://www.freetogame.com/">https://www.freetogame.com/</a></h2>
 
 <ul>
     {% for game in games %}
 
-    <li>{{ game.id }}</li>
-
+    <ul>
+        <a href="{{ game.game_url }}"><img src="{{ game.thumbnail }}" alt=""></a>
+       <b> Title: </b>{{ game.title }} 
+       <b> Description: </b>{{ game.short_description }}
+       <b> Genre: </b>{{ game.genre }}
+       <b> Platform: </b>{{ game.platform }}
+       <b> Release Date: </b> {{ game.release_date }}
+    </ul>
 
 
     {% endfor %}

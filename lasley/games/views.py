@@ -1,3 +1,4 @@
+from typing import List
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core import serializers
@@ -13,8 +14,8 @@ def index(request):
     gameList = {}
     resp = requests.get(url, headers)
     games = json.loads(resp.text)
-    games = games[10]
-    print(games)
+    # games = games[10]
+    # print(games)
 
-    return render(request, 'games.html', context=games)
+    return render(request, 'games.html', {'games':list(games)})
     # return HttpResponse(games)
