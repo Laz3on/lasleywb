@@ -1,0 +1,27 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<div style="background-color: black;">
+    <div class="container py-4" style="background-color: darkgrey;">
+        <div class="p-5 mb-4 bg-secondary rounded-3">
+            <div class="container-fluid py-5">
+                <div class="h-100 p-5 text-white bg-dark rounded-3">
+                    <h2>Dad Joke!</h2>
+                    <p>{{ joke }}</p>
+                    <a class="btn btn-outline-light" href="{% url 'jokes' %}">Tell me another one!</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-5 mb-4 bg-secondary rounded-3" style="padding: 10px;">
+            <div class="container-fluid py-5">
+                <div class="h-100 p-5 text-white bg-dark rounded-3">
+                    <h2>Chuck Norris FACT</h2>
+                    <p>{{ norris }}</p>
+                    <a class="btn btn-outline-light" href="{% url 'jokes' %}">Give me another fact!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

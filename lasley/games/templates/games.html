@@ -1,13 +1,11 @@
-{% extends "base.html" %}
+{% extends "games_base.html" %}
 
 {% block content %}
-<h2>List provided by <a href="https://www.freetogame.com/">https://www.freetogame.com/</a></h2>
-<ul>
+<ul style="background-color: #333333;">
     <div class="container">
         <div class="row">
             {% for game in games %}
-            <br>
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="color: #AFBBF2; background-color: #525252; width: 25rem; margin: 10px; padding-top: 12px; border-radius: 7%;">
                 <a href="{{ game.game_url }}"><img class="card-img-top" src="{{ game.thumbnail }}" alt=""></a>
                 <div class="card-body">
                     <ul class="card-text">
@@ -23,4 +21,5 @@
         </div>
     </div>
 </ul>
+<sub> List provided by <a href="https://www.freetogame.com/">https://www.freetogame.com/</a></sub>
 {% endblock %}
